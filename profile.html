@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>نموذج إرسال البيانات إلى Google Sheets</title>
+</head>
+<body>
+    <h1>مرحباً بك <span id="username"></span></h1>
+    <hr> 
+    <br>
+    <h1>صفحه اضافه المنتجات</h1>
+    <h3>لأضافه منتج ادخل اسمه و سعره و لينك صورته</h3>
+    <br>
+    <div class="container">
+      <form method="post" action="https://script.google.com/macros/s/AKfycbyTqEucVQkqwSFGMfE-6-1pdsIyCuK94NCo4P0UwM311ZqI-9dSSadLmmUiJtyxmwo/exec" name="contact-form">
+        <input type="text" name="product-name" placeholder="أسم المنتج">
+        <input type="number" name="product-prise" placeholder="سعر المنتج">
+        <input type="text" name="product-image" placeholder="لينك صوره المنتج">
+        </textarea>
+        <input type="submit" value="أضافة" id="submit">
+          </form>
+    </div>
+    <h1>المنتجات الحاليه</h1>
+    <hr>
+    <div id="product-list"></div>
+
+    
+      <script>
+        const username = localStorage.getItem('username');
+        if (!username) {
+            // إذا لم يتم العثور على اسم المستخدم في Local Storage، قم بتحويل المستخدم إلى صفحة تسجيل الدخول
+            window.location.href = 'index.html';
+        } else {
+        // عرض اسم المستخدم في العنصر ذو الـ id "user-name"
+        document.getElementById('username').textContent = username;
+    }
+    </script>
+      <script src="script.js"></script>
+      <script src="javascript.js"></script>
+  </body>
+</html>

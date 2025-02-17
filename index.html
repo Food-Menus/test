@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>تسجيل الدخول</title>
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffd7d7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            align-items: center;
+            margin: 20px;
+        }
+
+        form {
+            width: 80%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            padding: 20px;
+            display: block;
+            font-size: 50px;
+            align-items: center;
+
+        }
+
+        input {
+            margin-bottom: 20px;
+            padding: 20px;
+            width: 100%;
+            font-size: 60px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 35px 50px;
+            border: none;
+            border-radius: 30px;
+            font-size: 60px;
+            align-items: center;
+            display: flex;
+            margin: 50px;
+
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        h1 {
+            font-size: 60px;
+        }
+
+        h2 {
+            font-size: 45px;
+        }
+
+    </style>
+</head>
+<body>
+    <form id="loginForm">
+        <h1>مرحباً بك </h1>
+        <h2>برجاء تسجيل الدخول اولا لتتمكن من التعديل  </h2>
+        <label for="username">اسم المستخدم</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">كلمة المرور</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <button type="submit">تسجيل الدخول</button>
+    </form>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+
+        // بيانات المستخدمين الصحيحة (بديل لقاعدة بيانات)
+        const users = {
+            "ابتسام": "12345",
+            "قيصر": "123456"
+        };
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            // التحقق من صحة بيانات الدخول
+            if (users[username] === password) {
+                // تخزين بيانات الدخول في Local Storage
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+
+                // تحويل المستخدم إلى صفحة الملف الشخصي
+                window.location.href = 'profile.html';
+            } else {
+                alert('اسم المستخدم أو كلمة المرور غير صحيحة');
+            }
+        });
+    </script>
+</body>
+</html>
